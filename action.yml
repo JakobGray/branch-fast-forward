@@ -1,0 +1,26 @@
+name: 'Branch Fast-Forward'
+description: 'Keep branches up-to-date.'
+author: 'Jakob Gray'
+inputs:
+  main_branch:
+    description: 'Name of the up-to-date branch'
+    required: true
+  ff_branch:
+    description: 'Name of the branch that will be fast-forwarded'
+    required: true
+  user_name:
+    description: 'User name for git commits'
+    required: false
+    default: 'GitHub Actions'
+  user_email:
+    description: 'User email for git commits'
+    required: false
+    default: 'actions@github.com'
+  push_token:
+    description: 'Environment variable containing the token to use for push'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.myInput }}
